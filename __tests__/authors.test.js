@@ -3,11 +3,11 @@ const setup = require('../data/setup');
 // const request = require('supertest');
 // const app = require('../lib/app');
 
-describe('backend-express-template routes', () => {
+describe('authors routes', () => {
   beforeEach(() => {
     return setup(pool);
   });
-  it('example test - delete me!', () => {
+  it.skip('/books should', () => {
     expect(1).toEqual(1);
   });
   afterAll(() => {
