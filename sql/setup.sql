@@ -1,5 +1,7 @@
+DROP TABLE IF EXISTS authors_books;
 DROP TABLE IF EXISTS authors;
 DROP TABLE IF EXISTS books;
+
 
 CREATE TABLE authors (
   id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
@@ -48,3 +50,25 @@ VALUES
   ('optimal', '9/26/2022'),
   ('Profit-focused', '10/4/2022'),
   ('Compatible', '7/11/2022');
+
+CREATE TABLE authors_books (
+  id BIGINT GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
+  author_id BIGINT,
+  book_id BIGINT,
+  FOREIGN KEY (author_id) REFERENCES authors(id),
+  FOREIGN KEY (book_id) REFERENCES books(id)
+  );
+
+INSERT INTO 
+  authors_books (author_id, book_id)
+ VALUES
+   (1, 1),
+   (1, 2),
+   (2, 1),
+   (3, 3),
+   (4, 6),
+   (5, 5),
+   (9, 5),
+   (10, 10),
+   (8, 8),
+   (7, 7);
