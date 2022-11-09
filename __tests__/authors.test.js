@@ -13,6 +13,19 @@ describe('author routes', () => {
     expect(sissy).toHaveProperty('name', 'Sissy Bonn');
     expect(sissy).toHaveProperty('pob', 'Brazil');
   });
+
+  it('/authors/:id should return book details', async () => {
+    const res = await request(app).get('/authors/1');
+    const expected = {
+      id: '1',
+      name: 'Riki Jessopp',
+      dob: '2022-09-01T07:00:00.000Z',
+      pob: 'Thailand',
+    };
+
+    expect(res.body).toEqual(expected);
+  });
+
   afterAll(() => {
     pool.end();
   });
