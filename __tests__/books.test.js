@@ -11,7 +11,7 @@ describe('book routes', () => {
     const res = await request(app).get('/books');
     const phased = res.body.find((char) => char.id === '4');
     expect(phased).toHaveProperty('title', 'Phased');
-    expect(phased).toHaveProperty('released', '2022-05-08T07:00:00.000Z');
+    expect(phased).toHaveProperty('released', expect.any(String));
   });
 
   it('/books/:id should return book details', async () => {
