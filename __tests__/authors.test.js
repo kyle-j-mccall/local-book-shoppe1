@@ -15,12 +15,18 @@ describe('author routes', () => {
   });
 
   it('/authors/:id should return book details', async () => {
-    const res = await request(app).get('/authors/1');
+    const res = await request(app).get('/authors/4');
     const expected = {
-      id: '1',
-      name: 'Riki Jessopp',
-      dob: '2022-09-01T07:00:00.000Z',
-      pob: 'Thailand',
+      name: expect.any(String),
+      dob: expect.any(String),
+      pob: expect.any(String),
+      books: [
+        {
+          id: 6,
+          title: expect.any(String),
+          released: expect.any(String),
+        },
+      ],
     };
 
     expect(res.body).toEqual(expected);

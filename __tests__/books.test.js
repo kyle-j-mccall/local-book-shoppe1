@@ -15,11 +15,16 @@ describe('book routes', () => {
   });
 
   it('/books/:id should return book details', async () => {
-    const res = await request(app).get('/books/1');
+    const res = await request(app).get('/books/2');
     const expected = {
-      id: '1',
-      title: 'Business-focused',
-      released: '2022-08-09T07:00:00.000Z',
+      title: expect.any(String),
+      released: expect.any(String),
+      authors: [
+        {
+          id: expect.any(Number),
+          name: expect.any(String),
+        },
+      ],
     };
 
     expect(res.body).toEqual(expected);
